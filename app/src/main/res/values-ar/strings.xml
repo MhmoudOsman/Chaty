@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">شاتي</string>
+
+    <!--    Content Description-->
+    <string name="content_description_logo">Logo</string>
+
+    <string name="messages">الرسائل</string>
+    <string name="groups">المجموعات</string>
+    <string name="stories">القصص</string>
+    <string name="my_profile">حسابي</string>
+    <string name="welcome_to_chaty">مرحباً بك في شاتي</string>
+    <string name="choose_language">اخنر اللغه</string>
+    <string name="enter_your_phone_number">أدخل رقم هاتفك</string>
+    <string name="resend_code">اعادة ارسال</string>
+    <string name="verify">تحقيق</string>
+    <string name="next">التالي</string>
+    <string name="enter_otp_code">أدخل رمز التحقيق</string>
+</resources>

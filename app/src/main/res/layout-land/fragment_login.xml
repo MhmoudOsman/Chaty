@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        tools:context=".auth.screens.LoginFragment">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/img_logo"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:contentDescription="@string/content_description_logo"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintWidth_percent="0.35"
+                app:srcCompat="@drawable/ic_logo" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/txt_welcome"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:padding="@dimen/_6sdp"
+                android:text="@string/welcome_to_chaty"
+                android:textAppearance="?textAppearanceHeadlineMedium"
+                android:textColor="@color/seed"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/img_logo"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/txt_phone"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:padding="@dimen/_6sdp"
+                android:text="@string/enter_your_phone_number"
+                android:textAppearance="?textAppearanceTitleMedium"
+                android:textColor="?colorPrimary"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@id/txt_welcome"
+                app:layout_constraintTop_toBottomOf="@id/txt_welcome" />
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cv_ccp"
+                style="@style/Widget.OutlinedCardView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:cardPreventCornerOverlap="true"
+                app:cardUseCompatPadding="true"
+                app:contentPadding="@dimen/_2sdp"
+                app:layout_constraintEnd_toEndOf="@id/txt_welcome"
+                app:layout_constraintStart_toStartOf="@id/txt_welcome"
+                app:layout_constraintTop_toBottomOf="@id/txt_phone"
+                app:layout_constraintWidth_percent="0.51">
+
+                <com.hbb20.CountryCodePicker
+                    android:id="@+id/ccp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    app:ccpDialog_backgroundColor="?colorSurfaceContainer"
+                    app:ccpDialog_cornerRadius="@dimen/cornerRadius"
+                    app:ccpDialog_textColor="?colorPrimary"
+                    app:ccp_autoDetectCountry="true"
+                    app:ccp_autoDetectLanguage="true"
+                    app:ccp_autoFormatNumber="true"
+                    app:ccp_contentColor="?colorPrimary"
+                    app:ccp_hintExampleNumber="true"
+                    app:ccp_hintExampleNumberType="MOBILE"
+                    app:ccp_showArrow="true"
+                    app:ccp_showFlag="true"
+                    app:ccp_showFullName="true"
+                    app:ccp_showNameCode="false"
+                    app:ccp_showPhoneCode="false"
+                    app:ccp_textGravity="CENTER" />
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/et_phone"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_6sdp"
+                android:layoutDirection="ltr"
+                app:errorEnabled="true"
+                app:expandedHintEnabled="false"
+                app:hintEnabled="false"
+                app:layout_constraintEnd_toEndOf="@id/txt_welcome"
+                app:layout_constraintStart_toStartOf="@id/txt_welcome"
+                app:layout_constraintTop_toBottomOf="@id/cv_ccp"
+                app:layout_constraintWidth_percent="0.5"
+                app:prefixTextColor="?colorPrimary"
+                tools:prefixText="+20">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="phone"
+                    android:lines="1" />
+            </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_next"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/next"
+                app:layout_constraintTop_toBottomOf="@id/et_phone"
+                app:layout_constraintStart_toEndOf="@id/img_logo"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintVertical_bias="1"
+                android:layout_marginBottom="@dimen/_8sdp"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</layout>
