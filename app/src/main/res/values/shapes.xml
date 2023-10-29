@@ -3,16 +3,16 @@
 
     <style name="ShapeAppearance.Small" parent="ShapeAppearance.Material3.SmallComponent">
         <item name="cornerFamily">rounded</item>
-        <item name="cornerSize">@dimen/_8sdp</item>
+        <item name="cornerSize">@dimen/cornerRadius</item>
     </style>
 
     <style name="ShapeAppearance.Medium" parent="ShapeAppearance.Material3.MediumComponent">
         <item name="cornerFamily">rounded</item>
-        <item name="cornerSize">@dimen/_8sdp</item>
+        <item name="cornerSize">@dimen/cornerRadiusMedium</item>
     </style>
 
     <style name="ShapeAppearance.Large" parent="ShapeAppearance.Material3.LargeComponent">
         <item name="cornerFamily">rounded</item>
-        <item name="cornerSize">@dimen/_8sdp</item>
+        <item name="cornerSize">@dimen/cornerRadius</item>
     </style>
 </resources>

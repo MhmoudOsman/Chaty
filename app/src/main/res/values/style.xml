@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="ThemeOverlay.TextInputLayout" parent="">
+        <item name="colorOutline">?colorPrimary</item>
+        <!--        <item name="colorOnSurfaceVariant">?colorPrimary</item>-->
+        <!--        <item name="colorOnSurface">?colorPrimary</item>-->
+        <item name="textAppearanceTitleMedium">@style/TextAppearance.TitleMedium</item>
+        <item name="textAppearanceBodySmall">@style/TextAppearance.BodySmall</item>
+        <item name="editTextStyle">@style/Widget.Material3.TextInputEditText.OutlinedBox.Dense
+        </item>
+    </style>
+
+    <style name="Widget.TextInputLayout" parent="Widget.Material3.TextInputLayout.OutlinedBox.Dense">
+        <item name="materialThemeOverlay">@style/ThemeOverlay.TextInputLayout</item>
+        <item name="shapeAppearance">@style/ShapeAppearance.Small</item>
+        <item name="textAppearanceTitleMedium">@style/TextAppearance.TitleMedium</item>
+        <item name="textAppearanceBodySmall">@style/TextAppearance.BodySmall</item>
+    </style>
+
+    <style name="Widget.OutlinedCardView" parent="Widget.Material3.CardView.Outlined">
+        <item name="materialThemeOverlay">@style/ThemeOverlay.OutlinedCard</item>
+        <item name="shapeAppearance">@style/ShapeAppearance.Small</item>
+        <item name="strokeColor">?colorPrimary</item>
+        <item name="strokeWidth">@dimen/_1sdp</item>
+    </style>
+    <style name="Widget.ElevatedCardView" parent="Widget.Material3.CardView.Elevated">
+        <item name="materialThemeOverlay">@style/ThemeOverlay.ElevatedCard</item>
+        <item name="shapeAppearance">@style/ShapeAppearance.Medium</item>
+        <item name="cardElevation">@dimen/_1sdp</item>
+    </style>
+
+    <style name="ThemeOverlay.ElevatedCard" parent="" />
+
+    <style name="ThemeOverlay.OutlinedCard" parent="">
+
+    </style>
+
+    <style name="Widget.TextButton" parent="Widget.Material3.Button.TextButton">
+        <item name="materialThemeOverlay">@style/ThemeOverlay.TextButton</item>
+        <item name="shapeAppearance">@style/ShapeAppearance.Small</item>
+        <item name="android:textAppearance">@style/TextAppearance.LabelMedium</item>
+    </style>
+
+    <style name="Widget.OutlinedButton" parent="Widget.Material3.Button.OutlinedButton">
+        <item name="materialThemeOverlay">@style/ThemeOverlay.TextButton</item>
+        <item name="shapeAppearance">@style/ShapeAppearance.Small</item>
+        <item name="android:textAppearance">@style/TextAppearance.LabelMedium</item>
+
+    </style>
+
+    <style name="Widget.Button" parent="Widget.Material3.Button">
+        <item name="materialThemeOverlay">@style/ThemeOverlay.Button</item>
+        <item name="shapeAppearance">@style/ShapeAppearance.Small</item>
+        <item name="android:textAppearance">@style/TextAppearance.LabelMedium</item>
+
+    </style>
+
+    <style name="ThemeOverlay.Button" parent="ThemeOverlay.Material3.Button">
+        <item name="colorContainer">?colorPrimary</item>
+        <item name="colorOnContainer">?colorOnPrimary</item>
+    </style>
+
+    <style name="ThemeOverlay.TextButton" parent="ThemeOverlay.Material3.Button.TextButton">
+        <item name="colorOutline">?colorPrimary</item>
+    </style>
+
+</resources>

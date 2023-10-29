@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "821895709045",
+    "project_id": "mychat-d5db3",
+    "storage_bucket": "mychat-d5db3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:821895709045:android:d82e9573a2118a7488933c",
+        "android_client_info": {
+          "package_name": "com.chaty.app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCZJm8fZnX3wOeeMm7pK9rRcDwU2z7hu-4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:821895709045:android:c3b158b0ab9d3bfb88933c",
+        "android_client_info": {
+          "package_name": "com.chaty.domain"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCZJm8fZnX3wOeeMm7pK9rRcDwU2z7hu-4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

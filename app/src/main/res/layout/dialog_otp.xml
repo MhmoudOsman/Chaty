@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardPreventCornerOverlap="true"
+        app:cardUseCompatPadding="true"
+        app:contentPadding="@dimen/_6sdp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/txt_otp"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:labelFor="@id/v_otp"
+                android:padding="@dimen/_6sdp"
+                android:text="@string/enter_otp_code"
+                android:textAppearance="?textAppearanceTitleLarge"
+                android:textColor="?colorPrimary"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.chaos.view.PinView
+                android:id="@+id/v_otp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:inputType="number"
+                android:itemBackground="?colorSecondaryContainer"
+                android:padding="@dimen/_6sdp"
+                android:textAppearance="?textAppearanceBodySmall"
+                android:textColor="?colorOnSecondaryContainer"
+                app:cursorColor="?colorOnSecondaryContainer"
+                app:cursorWidth="@dimen/_1sdp"
+                app:hideLineWhenFilled="true"
+                app:itemCount="6"
+                app:itemRadius="@dimen/cornerRadius"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/txt_otp"
+                app:lineColor="?colorPrimary"
+                app:lineWidth="@dimen/_1sdp"
+                app:viewType="rectangle" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_verify"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:text="@string/verify"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/btn_resend_code"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/v_otp"
+                app:layout_constraintWidth_percent="0.45" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_resend_code"
+                style="?borderlessButtonStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/resend_code"
+                app:layout_constraintBottom_toBottomOf="@id/btn_verify"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/btn_verify"
+                app:layout_constraintTop_toTopOf="@id/btn_verify"
+                app:layout_constraintWidth_percent="0.45" />
+
+            <com.google.android.material.progressindicator.CircularProgressIndicator
+                android:id="@+id/loading"
+                style="@style/Widget.Material3.CircularProgressIndicator"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:elevation="@dimen/_5sdp"
+                android:indeterminate="true"
+                app:indicatorDirectionCircular="clockwise"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+</layout>

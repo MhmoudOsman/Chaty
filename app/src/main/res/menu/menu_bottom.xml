@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/messages_screen"
+        android:title="@string/messages"
+        android:icon="@drawable/ic_messages"/>
+    <item
+        android:id="@+id/groups_screen"
+        android:title="@string/groups"
+        android:icon="@drawable/ic_groups"/>
+    <item
+        android:id="@+id/story_screen"
+        android:title="@string/stories"
+        android:icon="@drawable/ic_story"/>
+    <item
+        android:id="@+id/profile_screen"
+        android:title="@string/my_profile"
+        android:icon="@drawable/ic_profile"/>
+</menu>
