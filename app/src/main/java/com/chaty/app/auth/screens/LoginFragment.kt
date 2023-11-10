@@ -11,14 +11,17 @@ import androidx.core.content.res.ResourcesCompat
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
-import com.chaty.domain.auth.models.PhoneAuthOptionsModel
 import com.chaty.app.R
 import com.chaty.app.auth.dialogs.OtpDialog
+import com.chaty.app.auth.state.AuthErrorsCode.INVALID_PHONE_NUMBER
+import com.chaty.app.auth.state.AuthErrorsCode.INVALID_VERIFICATION_CODE
+import com.chaty.app.auth.state.AuthErrorsCode.UNKNOWN
 import com.chaty.app.auth.state.AuthUiIntent
 import com.chaty.app.auth.state.AuthUiState
 import com.chaty.app.auth.viewmodels.LoginVM
 import com.chaty.app.base.BaseFragment
 import com.chaty.app.databinding.FragmentLoginBinding
+import com.chaty.domain.auth.models.PhoneAuthOptionsModel
 import com.google.firebase.auth.PhoneAuthProvider
 import com.hbb20.CountryCodePicker
 import kotlinx.coroutines.launch
@@ -56,30 +59,46 @@ class LoginFragment : BaseFragment() {
             vm.uiState.collect {
                 when (it) {
                     is AuthUiState.Idle -> {
-                        binding.loading?.hide()
+                        hideLoading()
                     }
 
                     is AuthUiState.Loading -> {
-                        binding.loading?.show()
+                        showLoading()
                     }
 
                     is AuthUiState.Error -> {
-                        binding.loading?.hide()
-                        Toast.makeText(requireContext(), it.message, Toast.LENGTH_SHORT).show()
+                        hideLoading()
+                        when (it.code) {
+                            INVALID_VERIFICATION_CODE -> {
+                                if (otpDialog.isShowing) {
+                                    otpDialog.onCodeError(it.message)
+                                }
+                            }
+
+                            INVALID_PHONE_NUMBER -> {
+                                binding.etPhone.isErrorEnabled = true
+                                binding.etPhone.error = it.message
+                            }
+
+                            UNKNOWN -> {
+                                Toast.makeText(requireContext(), it.message, Toast.LENGTH_SHORT)
+                                    .show()
+                            }
+                        }
                     }
 
                     is AuthUiState.LoginSuccess -> {
-                        binding.loading?.hide()
+                        hideLoading()
                         otpDialog.hideProgress()
                         otpDialog.dismissDialog()
                         val directions =
                             LoginFragmentDirections.actionLoginToCreateAccount(binding.ccp.fullNumberWithPlus)
-                        findNavController().navigate(directions)
                         vm.userIntent.send(AuthUiIntent.Clear)
+                        findNavController().navigate(directions)
                     }
 
                     is AuthUiState.SendOTPSuccess -> {
-                        binding.loading?.hide()
+                        hideLoading()
                         otpDialog.hideProgress()
                         showOtpDialog(it.verificationId, it.token)
                     }
@@ -116,7 +135,7 @@ class LoginFragment : BaseFragment() {
 
             btnNext.setOnClickListener {
                 lifecycleScope.launch {
-                    if (ccp.isValidFullNumber){
+                    if (ccp.isValidFullNumber) {
                         vm.userIntent.send(
                             AuthUiIntent.SendOTP(
                                 PhoneAuthOptionsModel(
@@ -125,7 +144,7 @@ class LoginFragment : BaseFragment() {
                                 )
                             )
                         )
-                    }else{
+                    } else {
                         etPhone.error = "phone number is invalid"
                         etPhone.isErrorEnabled = true
                     }
@@ -144,7 +163,6 @@ class LoginFragment : BaseFragment() {
             lifecycleScope.launch {
                 vm.userIntent.send(AuthUiIntent.VerifyOTP(verificationId, it))
             }
-            Toast.makeText(requireContext(), it, Toast.LENGTH_SHORT).show()
         }
         otpDialog.onResendCodeClick = {
             otpDialog.showProgress()
@@ -159,7 +177,6 @@ class LoginFragment : BaseFragment() {
                     )
                 )
             }
-            Toast.makeText(requireContext(), "resend", Toast.LENGTH_SHORT).show()
         }
         otpDialog.showDialog(childFragmentManager)
     }

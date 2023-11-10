@@ -1,6 +1,6 @@
-package com.chaty.data.auth.local.entities
+package com.chaty.data.user.local.entities
 
-import com.chaty.domain.auth.models.UserModel
+import com.chaty.domain.user.models.UserModel
 
 data class UserEntity(
     val id: String,

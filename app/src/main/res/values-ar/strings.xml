@@ -2,7 +2,9 @@
     <string name="app_name">شاتي</string>
 
     <!--    Content Description-->
-    <string name="content_description_logo">Logo</string>
+    <string name="content_description_logo">لوجو</string>
+    <string name="content_description_profile_pic">الصوره الشخصيه</string>
+    <string name="content_description_edit_profile_picture">تعديل الصوره الشخصيه</string>
 
     <string name="messages">الرسائل</string>
     <string name="groups">المجموعات</string>
@@ -15,4 +17,9 @@
     <string name="verify">تحقيق</string>
     <string name="next">التالي</string>
     <string name="enter_otp_code">أدخل رمز التحقيق</string>
+    <string name="enter_your_data">أدخل البياناتك</string>
+    <string name="name_helper_txt">هذا ليس اسم المستخدم أو الرقم السري الخاص بك. سيكون هذا الاسم مرئيًا لأصدقائك</string>
+    <string name="name">الاسم :</string>
+    <string name="info">معلومات :</string>
+    <string name="confirm">تأكيد</string>
 </resources>

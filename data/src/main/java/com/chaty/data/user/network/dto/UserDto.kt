@@ -1,7 +1,7 @@
-package com.chaty.data.auth.network.dto
+package com.chaty.data.user.network.dto
 
-import com.chaty.data.auth.local.entities.UserEntity
-import com.chaty.domain.auth.models.UserModel
+import com.chaty.data.user.local.entities.UserEntity
+import com.chaty.domain.user.models.UserModel
 
 data class UserDto(
     val id: String = "",

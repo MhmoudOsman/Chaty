@@ -5,6 +5,8 @@
 
     <!--    Content Description-->
     <string name="content_description_logo">Logo</string>
+    <string name="content_description_profile_pic">Profile Picture</string>
+    <string name="content_description_edit_profile_picture">Edit profile picture</string>
 
     <string name="messages">Messages</string>
     <string name="groups">Groups</string>
@@ -17,5 +19,10 @@
     <string name="verify">Verify</string>
     <string name="next">Next</string>
     <string name="enter_otp_code">Enter OTP Code</string>
+    <string name="enter_your_data">Enter your data</string>
+    <string name="name_helper_txt">This not your username or pin. This name will be visible to your friends</string>
+    <string name="name">Name :</string>
+    <string name="info">Info :</string>
+    <string name="confirm">Confirm</string>
 
 </resources>

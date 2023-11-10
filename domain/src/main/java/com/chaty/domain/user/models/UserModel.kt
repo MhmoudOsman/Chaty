@@ -1,4 +1,4 @@
-package com.chaty.domain.auth.models
+package com.chaty.domain.user.models
 
 data class UserModel(
     val id: String,

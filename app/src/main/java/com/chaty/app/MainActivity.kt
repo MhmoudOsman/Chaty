@@ -9,9 +9,9 @@ import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import com.chaty.app.databinding.ActivityMainBinding
-import com.chaty.app.tools.CacheHelper
 import com.chaty.app.tools.getDefaultLanguage
 import com.chaty.app.tools.setLocale
+import com.chaty.data.tools.CacheHelper
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

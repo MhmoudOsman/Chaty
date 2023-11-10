@@ -1,11 +1,11 @@
-package com.chaty.data.auth
+package com.chaty.data.tools
 
 import com.google.firebase.FirebaseException
 import com.google.firebase.auth.PhoneAuthCredential
 import com.google.firebase.auth.PhoneAuthOptions
 import com.google.firebase.auth.PhoneAuthProvider
-import com.chaty.data.auth.network.dto.UserDto
-import com.chaty.domain.auth.models.UserModel
+import com.chaty.data.user.network.dto.UserDto
+import com.chaty.domain.user.models.UserModel
 import com.chaty.domain.auth.state.PhoneAuthResult
 
 fun UserModel.asDTO(): UserDto = UserDto(

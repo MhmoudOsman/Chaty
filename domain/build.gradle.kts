@@ -2,8 +2,6 @@ plugins {
     id("com.android.library")
     id("org.jetbrains.kotlin.android")
     id("com.google.devtools.ksp")
-    id("kotlin-kapt")
-    kotlin("kapt")
 }
 
 android {
@@ -47,10 +45,9 @@ dependencies {
     // Firebase
     implementation(platform("com.google.firebase:firebase-bom:32.4.0"))
     api("com.google.firebase:firebase-auth-ktx:22.2.0")
+    api("com.google.firebase:firebase-firestore-ktx:24.9.1")
+    api("com.google.firebase:firebase-storage-ktx:20.3.0")
 
-}
-kapt {
-    correctErrorTypes = true
 }
 ksp {
     arg("verbose", "true")

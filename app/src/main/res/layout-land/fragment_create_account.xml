@@ -86,7 +86,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/img_profile"
-                app:layout_constraintWidth_percent="0.9"
+                app:layout_constraintWidth_percent="0.7"
                 app:prefixText="@string/name"
                 app:prefixTextColor="?colorPrimary">
 

@@ -5,12 +5,12 @@ import android.content.pm.PackageManager
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.content.ContextCompat
-import com.chaty.app.tools.CacheHelper
-import com.chaty.app.tools.CacheHelper.Companion.NOT_FIRST_TIME
-import com.chaty.app.tools.CacheHelper.Companion.PREFERENCE_LANGUAGE
-import com.chaty.app.tools.CacheHelper.Companion.PREFERENCE_THEME
 import com.chaty.app.tools.Language
 import com.chaty.app.tools.setLocale
+import com.chaty.data.tools.CacheHelper
+import com.chaty.data.tools.CacheHelper.Companion.NOT_FIRST_TIME
+import com.chaty.data.tools.CacheHelper.Companion.PREFERENCE_LANGUAGE
+import com.chaty.data.tools.CacheHelper.Companion.PREFERENCE_THEME
 import dagger.hilt.android.AndroidEntryPoint
 
 

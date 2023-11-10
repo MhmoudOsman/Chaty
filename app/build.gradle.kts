@@ -2,12 +2,10 @@ plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
     id("com.google.devtools.ksp")
-    id("kotlin-kapt")
-    kotlin("kapt")
     id("androidx.navigation.safeargs.kotlin")
     id("com.google.dagger.hilt.android")
     id("com.google.gms.google-services")
-}
+    id("kotlin-kapt")}
 
 android {
     namespace = "com.chaty.app"
@@ -41,7 +39,6 @@ android {
     }
     buildFeatures {
         dataBinding = true
-        viewBinding = true
         buildConfig = true
     }
 
@@ -56,10 +53,6 @@ dependencies {
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
-
-    //Preference
-    implementation("androidx.preference:preference-ktx:1.2.1")
-    implementation("com.google.code.gson:gson:2.10.1")
 
     //Navigation Component
     implementation("androidx.navigation:navigation-fragment-ktx:$navVersion")
@@ -93,13 +86,11 @@ dependencies {
     //PinView
     implementation("io.github.chaosleung:pinview:1.4.4")
 
-    implementation(project(path = ":domain"))
     implementation(project(path = ":data"))
+    implementation(project(path = ":domain"))
 
 }
-kapt {
-    correctErrorTypes = true
-}
+
 ksp {
     arg("verbose", "true")
 }

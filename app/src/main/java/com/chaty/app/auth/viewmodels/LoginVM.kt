@@ -3,13 +3,15 @@ package com.chaty.app.auth.viewmodels
 import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.chaty.domain.auth.models.PhoneAuthOptionsModel
 import com.chaty.domain.auth.state.PhoneAuthResult
 import com.chaty.domain.auth.usecase.LoginUseCase
 import com.chaty.domain.auth.usecase.SendOTPUseCase
 import com.chaty.app.auth.state.AuthUiIntent
 import com.chaty.app.auth.state.AuthUiState
 import com.chaty.app.di.annotations.MainDispatcher
+import com.chaty.app.auth.state.AuthErrorsCode
+import com.chaty.domain.auth.models.PhoneAuthOptionsModel
+import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException
 import com.google.firebase.auth.PhoneAuthCredential
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.CoroutineDispatcher
@@ -31,7 +33,14 @@ class LoginVM @Inject constructor(
 ) : ViewModel() {
     private val errorHandler = CoroutineExceptionHandler { _, th ->
         Log.e(TAG, "error: ${th.message}", th)
-        _uiState.value = AuthUiState.Error(th.message?:"Error")
+        when (th) {
+            is FirebaseAuthInvalidCredentialsException -> {
+                _uiState.value = AuthUiState.Error("Invalid Credentials", AuthErrorsCode.INVALID_VERIFICATION_CODE)
+            }
+            else -> {
+                _uiState.value = AuthUiState.Error(th.message?:"Error", AuthErrorsCode.UNKNOWN)
+            }
+        }
     }
 
     val userIntent = Channel<AuthUiIntent>(Channel.UNLIMITED)
@@ -66,7 +75,16 @@ class LoginVM @Inject constructor(
                         login(it.credentials)
                     }
                     is PhoneAuthResult.VerificationFailed -> {
-                        _uiState.value = AuthUiState.Error(it.exception.message?:"")
+                        when (it.exception) {
+                            is FirebaseAuthInvalidCredentialsException -> {
+                                _uiState.value = AuthUiState.Error("Invalid Credentials",
+                                    AuthErrorsCode.INVALID_PHONE_NUMBER)
+                            }
+                            else -> {
+                                _uiState.value = AuthUiState.Error(it.exception.message?:"Error",
+                                    AuthErrorsCode.UNKNOWN)
+                            }
+                        }
                     }
                 }
             }.launchIn(this)
@@ -74,21 +92,23 @@ class LoginVM @Inject constructor(
     }
 
     private fun login(credential: PhoneAuthCredential) {
+        _uiState.value = AuthUiState.Loading
         viewModelScope.launch(errorHandler + dispatcher) {
             if (loginUseCase(credential)){
                 _uiState.value = AuthUiState.LoginSuccess
             }else{
-                _uiState.value = AuthUiState.Error("Login Failed")
+                _uiState.value = AuthUiState.Error("Login Failed", AuthErrorsCode.UNKNOWN)
             }
         }
     }
 
     private fun login(verificationId: String, code: String) {
+        _uiState.value = AuthUiState.Loading
         viewModelScope.launch(errorHandler + dispatcher) {
             if (loginUseCase(verificationId, code)){
                 _uiState.value = AuthUiState.LoginSuccess
             }else{
-                _uiState.value = AuthUiState.Error("Login Failed")
+                _uiState.value = AuthUiState.Error("Login Failed", AuthErrorsCode.UNKNOWN)
             }
         }
     }
