@@ -5,7 +5,8 @@ plugins {
     id("androidx.navigation.safeargs.kotlin")
     id("com.google.dagger.hilt.android")
     id("com.google.gms.google-services")
-    id("kotlin-kapt")}
+    id("kotlin-kapt")
+}
 
 android {
     namespace = "com.chaty.app"
@@ -45,7 +46,7 @@ android {
 }
 
 dependencies {
-    val navVersion = "2.7.4"
+    val navVersion = "2.7.5"
 
     implementation("androidx.core:core-ktx:1.12.0")
     implementation("androidx.appcompat:appcompat:1.6.1")
@@ -71,20 +72,23 @@ dependencies {
     ksp("com.google.dagger:hilt-android-compiler:2.48.1")
 
     //Coil image loader
-    implementation("io.coil-kt:coil:2.4.0")
+    implementation("io.coil-kt:coil:2.5.0")
 
     // sdp & ssp Size
     implementation("com.intuit.sdp:sdp-android:1.1.0")
     implementation("com.intuit.ssp:ssp-android:1.1.0")
 
     //SmoothBottomBar
-    implementation("com.github.ibrahimsn98:SmoothBottomBar:1.7.9")
+//    implementation("com.github.ibrahimsn98:SmoothBottomBar:1.7.9")
 
     //Country Code Picker
     implementation("com.hbb20:ccp:2.7.3")
 
     //PinView
     implementation("io.github.chaosleung:pinview:1.4.4")
+
+    //image Cropper
+    implementation("com.vanniktech:android-image-cropper:4.5.0")
 
     implementation(project(path = ":data"))
     implementation(project(path = ":domain"))

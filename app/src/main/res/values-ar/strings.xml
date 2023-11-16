@@ -1,6 +1,11 @@
 <resources>
     <string name="app_name">شاتي</string>
 
+    <!--    Error Messages-->
+    <string name="error_no_internet_connection">لا يوجد اتصال بالإنترنت</string>
+    <string name="error_invalid_phone_number">رقم الهاتف غير صحيح</string>
+    <string name="error_invalid_verification_code">رمز التحقق غير صالح</string>
+
     <!--    Content Description-->
     <string name="content_description_logo">لوجو</string>
     <string name="content_description_profile_pic">الصوره الشخصيه</string>
@@ -22,4 +27,5 @@
     <string name="name">الاسم :</string>
     <string name="info">معلومات :</string>
     <string name="confirm">تأكيد</string>
+    <string name="error_required">*Required</string>
 </resources>

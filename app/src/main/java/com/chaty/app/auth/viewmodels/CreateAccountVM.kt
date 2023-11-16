@@ -30,6 +30,8 @@ class CreateAccountVM @Inject constructor(
 ) : ViewModel() {
     private val errorHandler = CoroutineExceptionHandler { _, th ->
         Log.e(TAG, "error: ${th.message}", th)
+        _uiState.value = CreateAccountUiState.Error(th.message?:"Error", CreateAccountErrorsCode.UNKNOWN)
+
     }
     val userIntent = Channel<CreateAccountUiIntent>(Channel.UNLIMITED)
     private val _uiState = MutableStateFlow<CreateAccountUiState>(CreateAccountUiState.Idle)
@@ -44,6 +46,7 @@ class CreateAccountVM @Inject constructor(
             }
         }.catch {
             Log.e(TAG, "error: ${it.message}", it)
+            _uiState.value = CreateAccountUiState.Error(it.message?:"Error", CreateAccountErrorsCode.UNKNOWN)
         }.launchIn(viewModelScope)
         getUser()
     }
@@ -66,7 +69,7 @@ class CreateAccountVM @Inject constructor(
           if (saveUserUseCase(name, info, image, phone)){
             _uiState.value = CreateAccountUiState.SaveSuccess
           }  else{
-            _uiState.value = CreateAccountUiState.Error("Save Failed", CreateAccountErrorsCode.UNKNOWN)
+            _uiState.value = CreateAccountUiState.Error("Load Failed", CreateAccountErrorsCode.LOAD_USER_FAILED)
           }
         }
     }
@@ -81,7 +84,7 @@ class CreateAccountVM @Inject constructor(
           if (saveUserUseCase(name, info, image, phone)){
             _uiState.value = CreateAccountUiState.SaveSuccess
           }  else{
-            _uiState.value = CreateAccountUiState.Error("Save Failed", CreateAccountErrorsCode.UNKNOWN)
+            _uiState.value = CreateAccountUiState.Error("Save Failed", CreateAccountErrorsCode.SAVE_USER_FAILED)
           }
         }
     }

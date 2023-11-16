@@ -3,6 +3,11 @@
 
     <string name="hello_blank_fragment" translatable="false">Hello blank fragment</string>
 
+    <!--    Error Messages-->
+    <string name="error_no_internet_connection">NO INTERNET CONNECTION</string>
+    <string name="error_invalid_phone_number">Invalid Phone Number</string>
+    <string name="error_invalid_verification_code">Invalid Verification Code</string>
+
     <!--    Content Description-->
     <string name="content_description_logo">Logo</string>
     <string name="content_description_profile_pic">Profile Picture</string>
@@ -24,5 +29,6 @@
     <string name="name">Name :</string>
     <string name="info">Info :</string>
     <string name="confirm">Confirm</string>
+    <string name="error_required">*Required</string>
 
 </resources>

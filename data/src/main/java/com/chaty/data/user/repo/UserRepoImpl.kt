@@ -2,6 +2,8 @@ package com.chaty.data.user.repo
 
 import android.content.Context
 import android.net.Uri
+import com.chaty.data.tools.CacheHelper
+import com.chaty.data.tools.CacheHelper.Companion.PREFERENCE_USER_LOGGED
 import com.chaty.data.user.network.dto.UserDto
 import com.chaty.domain.user.models.UserModel
 import com.chaty.domain.user.repo.UserRepo
@@ -31,7 +33,7 @@ class UserRepoImpl(private val context: Context, private val dispatcher: Corouti
         info: String,
         image: String,
         phone: String
-    ): Boolean = withContext(dispatcher) {
+    ):Boolean = withContext(dispatcher) {
         Firebase.auth.currentUser?.let { user ->
             val dto = UserDto(
                 id = user.uid,
@@ -43,7 +45,7 @@ class UserRepoImpl(private val context: Context, private val dispatcher: Corouti
             )
             val result = db.document(user.uid).set(dto)
             result.await()
-            result.isSuccessful
+            result.exception?.let { throw it }?:CacheHelper.getInstance(context).saveBoolean(PREFERENCE_USER_LOGGED, true)
         } ?: throw NullPointerException("No User Logged")
     }
 

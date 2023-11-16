@@ -15,6 +15,7 @@ import com.chaty.app.R
 import com.chaty.app.auth.dialogs.OtpDialog
 import com.chaty.app.auth.state.AuthErrorsCode.INVALID_PHONE_NUMBER
 import com.chaty.app.auth.state.AuthErrorsCode.INVALID_VERIFICATION_CODE
+import com.chaty.app.auth.state.AuthErrorsCode.NO_INTERNET_CONNECTION
 import com.chaty.app.auth.state.AuthErrorsCode.UNKNOWN
 import com.chaty.app.auth.state.AuthUiIntent
 import com.chaty.app.auth.state.AuthUiState
@@ -71,19 +72,22 @@ class LoginFragment : BaseFragment() {
                         when (it.code) {
                             INVALID_VERIFICATION_CODE -> {
                                 if (otpDialog.isShowing) {
-                                    otpDialog.onCodeError(it.message)
+                                    otpDialog.onCodeError(getString(R.string.error_invalid_verification_code))
                                 }
                             }
 
                             INVALID_PHONE_NUMBER -> {
                                 binding.etPhone.isErrorEnabled = true
-                                binding.etPhone.error = it.message
+                                binding.etPhone.error = getString(R.string.error_invalid_phone_number)
+                            }
+                            NO_INTERNET_CONNECTION -> {
+                                Toast.makeText(requireContext(),R.string.error_no_internet_connection, Toast.LENGTH_LONG).show()
                             }
 
                             UNKNOWN -> {
-                                Toast.makeText(requireContext(), it.message, Toast.LENGTH_SHORT)
-                                    .show()
+                                Toast.makeText(requireContext(), it.message, Toast.LENGTH_LONG).show()
                             }
+
                         }
                     }
 
@@ -145,7 +149,7 @@ class LoginFragment : BaseFragment() {
                             )
                         )
                     } else {
-                        etPhone.error = "phone number is invalid"
+                        etPhone.error = getString(R.string.error_invalid_phone_number)
                         etPhone.isErrorEnabled = true
                     }
                 }

@@ -8,6 +8,7 @@
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".MainActivity">
@@ -25,7 +26,7 @@
                 android:id="@+id/appbar"
                 android:layout_width="match_parent"
                 android:layout_height="?actionBarSize"
-                app:liftOnScrollColor="?android:colorBackground">
+                app:liftOnScroll="false">
 
                 <com.google.android.material.appbar.MaterialToolbar
                     android:id="@+id/toolbar"
@@ -45,24 +46,15 @@
 
         </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
-        <me.ibrahimsn.lib.SmoothBottomBar
+        <com.google.android.material.bottomnavigation.BottomNavigationView
             android:id="@+id/bottomBar"
             android:layout_width="match_parent"
-            android:layout_height="?actionBarSize"
-            android:elevation="@dimen/_6sdp"
-            app:backgroundColor="?android:colorBackground"
-            app:cornerRadius="@dimen/_8sdp"
-            app:corners="top_left|top_right"
-            app:iconTint="?colorPrimary"
-            app:iconTintActive="?colorOnPrimary"
-            app:indicatorColor="?colorPrimary"
-            app:indicatorRadius="@dimen/cornerRadius"
-            app:itemFontFamily="@font/rubik"
+            android:layout_height="wrap_content"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:menu="@menu/menu_bottom"
-            app:sideMargins="@dimen/_8sdp"
-            app:textColor="?colorOnPrimary" />
+            app:shapeAppearance="@style/ShapeAppearance.Material3.Corner.Large"
+            app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.Material3.Corner.Top"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

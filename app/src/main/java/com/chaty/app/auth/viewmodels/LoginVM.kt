@@ -11,6 +11,7 @@ import com.chaty.app.auth.state.AuthUiState
 import com.chaty.app.di.annotations.MainDispatcher
 import com.chaty.app.auth.state.AuthErrorsCode
 import com.chaty.domain.auth.models.PhoneAuthOptionsModel
+import com.google.firebase.FirebaseNetworkException
 import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException
 import com.google.firebase.auth.PhoneAuthCredential
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -36,6 +37,9 @@ class LoginVM @Inject constructor(
         when (th) {
             is FirebaseAuthInvalidCredentialsException -> {
                 _uiState.value = AuthUiState.Error("Invalid Credentials", AuthErrorsCode.INVALID_VERIFICATION_CODE)
+            }
+            is FirebaseNetworkException->{
+                _uiState.value = AuthUiState.Error("No Internet Connection",AuthErrorsCode.NO_INTERNET_CONNECTION)
             }
             else -> {
                 _uiState.value = AuthUiState.Error(th.message?:"Error", AuthErrorsCode.UNKNOWN)
@@ -75,14 +79,17 @@ class LoginVM @Inject constructor(
                         login(it.credentials)
                     }
                     is PhoneAuthResult.VerificationFailed -> {
+                        Log.e(TAG, "sendOtp: ${it.exception.message}", it.exception)
                         when (it.exception) {
                             is FirebaseAuthInvalidCredentialsException -> {
                                 _uiState.value = AuthUiState.Error("Invalid Credentials",
                                     AuthErrorsCode.INVALID_PHONE_NUMBER)
                             }
+                            is FirebaseNetworkException->{
+                                _uiState.value = AuthUiState.Error("No Internet Connection",AuthErrorsCode.NO_INTERNET_CONNECTION)
+                            }
                             else -> {
-                                _uiState.value = AuthUiState.Error(it.exception.message?:"Error",
-                                    AuthErrorsCode.UNKNOWN)
+                                _uiState.value = AuthUiState.Error(it.exception.message?:"Unknown Error", AuthErrorsCode.UNKNOWN)
                             }
                         }
                     }

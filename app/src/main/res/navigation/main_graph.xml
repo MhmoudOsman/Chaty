@@ -1,6 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/main_graph">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_graph"
+    app:startDestination="@id/messages_screen">
 
+    <fragment
+        android:id="@+id/messages_screen"
+        android:name="com.chaty.app.messages_screen.ui.MessagesFragment"
+        android:label="@string/messages"
+        tools:layout="@layout/fragment_messages" />
+    <fragment
+        android:id="@+id/groups_screen"
+        android:name="com.chaty.app.groups_screen.ui.GroupsFragment"
+        android:label="@string/groups"
+        tools:layout="@layout/fragment_groups" />
+    <fragment
+        android:id="@+id/story_screen"
+        android:name="com.chaty.app.stories_screen.ui.StoriesFragment"
+        android:label="@string/stories"
+        tools:layout="@layout/fragment_stories" />
+    <fragment
+        android:id="@+id/profile_screen"
+        android:name="com.chaty.app.profile_screen.ui.ProfileFragment"
+        android:label="@string/my_profile"
+        tools:layout="@layout/fragment_profile" />
 </navigation>
