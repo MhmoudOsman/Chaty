@@ -11,6 +11,7 @@
         android:id="@+id/container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:fitsSystemWindows="true"
         tools:context=".MainActivity">
 
         <androidx.coordinatorlayout.widget.CoordinatorLayout
@@ -26,13 +27,19 @@
                 android:id="@+id/appbar"
                 android:layout_width="match_parent"
                 android:layout_height="?actionBarSize"
-                app:liftOnScroll="false">
+                android:fitsSystemWindows="true"
+                app:liftOnScroll="true"
+                app:liftOnScrollTargetViewId="@id/nav_host_fragment">
 
                 <com.google.android.material.appbar.MaterialToolbar
                     android:id="@+id/toolbar"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    app:titleCentered="true" />
+                    app:navigationIcon="@drawable/ic_back"
+                    app:layout_scrollFlags="scroll|enterAlways|snap"
+                    app:layout_scrollEffect="compress"
+                    tools:title="@string/messages_label"
+                    />
             </com.google.android.material.appbar.AppBarLayout>
 
             <androidx.fragment.app.FragmentContainerView
@@ -44,6 +51,14 @@
                 app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior"
                 tools:navGraph="@navigation/auth_graph" />
 
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/fab"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|end"
+                android:layout_margin="@dimen/_6sdp"
+                android:src="@drawable/ic_start_chat"
+                app:layout_anchorGravity="bottom|end" />
         </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
         <com.google.android.material.bottomnavigation.BottomNavigationView
@@ -53,8 +68,6 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:menu="@menu/menu_bottom"
-            app:shapeAppearance="@style/ShapeAppearance.Material3.Corner.Large"
-            app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.Material3.Corner.Top"/>
+            app:menu="@menu/menu_bottom"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

@@ -28,6 +28,11 @@ class UserRepoImpl(private val context: Context, private val dispatcher: Corouti
         } ?: throw NullPointerException("No User Logged")
     }
 
+    override suspend fun getUsers(): List<UserModel>  = withContext(dispatcher) {
+        val users = db.get().await().toObjects(UserDto::class.java)
+        users.map { it.asModel() }
+    }
+
     override suspend fun saveUser(
         name: String,
         info: String,

@@ -5,6 +5,7 @@ import com.chaty.domain.user.models.UserModel
 
 interface UserRepo {
     suspend fun getUser(): UserModel
+    suspend fun getUsers(): List<UserModel>
     suspend fun saveUser(name: String, info: String, image: String, phone: String): Boolean
     suspend fun uploadProfilePhoto(image: Uri): String
 }

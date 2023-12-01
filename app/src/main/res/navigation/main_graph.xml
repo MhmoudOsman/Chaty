@@ -8,21 +8,30 @@
     <fragment
         android:id="@+id/messages_screen"
         android:name="com.chaty.app.messages_screen.ui.MessagesFragment"
-        android:label="@string/messages"
-        tools:layout="@layout/fragment_messages" />
+        android:label="@string/messages_label"
+        tools:layout="@layout/fragment_messages" >
+        <action
+            android:id="@+id/action_messages_screen_to_get_contact_screen"
+            app:destination="@id/contact_screen" />
+    </fragment>
     <fragment
         android:id="@+id/groups_screen"
         android:name="com.chaty.app.groups_screen.ui.GroupsFragment"
-        android:label="@string/groups"
+        android:label="@string/groups_label"
         tools:layout="@layout/fragment_groups" />
     <fragment
         android:id="@+id/story_screen"
         android:name="com.chaty.app.stories_screen.ui.StoriesFragment"
-        android:label="@string/stories"
+        android:label="@string/stories_label"
         tools:layout="@layout/fragment_stories" />
     <fragment
         android:id="@+id/profile_screen"
         android:name="com.chaty.app.profile_screen.ui.ProfileFragment"
-        android:label="@string/my_profile"
+        android:label="@string/my_profile_label"
         tools:layout="@layout/fragment_profile" />
+    <fragment
+        android:id="@+id/contact_screen"
+        android:name="com.chaty.app.messages_screen.ui.ContactFragment"
+        tools:layout="@layout/fragment_contact"
+        android:label="@string/contacts_label"/>
 </navigation>

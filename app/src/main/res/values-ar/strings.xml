@@ -11,10 +11,10 @@
     <string name="content_description_profile_pic">الصوره الشخصيه</string>
     <string name="content_description_edit_profile_picture">تعديل الصوره الشخصيه</string>
 
-    <string name="messages">الرسائل</string>
-    <string name="groups">المجموعات</string>
-    <string name="stories">القصص</string>
-    <string name="my_profile">حسابي</string>
+    <string name="messages_label">الرسائل</string>
+    <string name="groups_label">المجموعات</string>
+    <string name="stories_label">القصص</string>
+    <string name="my_profile_label">حسابي</string>
     <string name="welcome_to_chaty">مرحباً بك في شاتي</string>
     <string name="choose_language">اخنر اللغه</string>
     <string name="enter_your_phone_number">أدخل رقم هاتفك</string>
@@ -28,4 +28,5 @@
     <string name="info">معلومات :</string>
     <string name="confirm">تأكيد</string>
     <string name="error_required">*Required</string>
+    <string name="contacts_label">Select Contacts</string>
 </resources>

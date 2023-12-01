@@ -2,18 +2,18 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/messages_screen"
-        android:title="@string/messages"
+        android:title="@string/messages_label"
         android:icon="@drawable/ic_messages"/>
     <item
         android:id="@+id/groups_screen"
-        android:title="@string/groups"
+        android:title="@string/groups_label"
         android:icon="@drawable/ic_groups"/>
     <item
         android:id="@+id/story_screen"
-        android:title="@string/stories"
+        android:title="@string/stories_label"
         android:icon="@drawable/ic_story"/>
     <item
         android:id="@+id/profile_screen"
-        android:title="@string/my_profile"
+        android:title="@string/my_profile_label"
         android:icon="@drawable/ic_profile"/>
 </menu>

@@ -9,7 +9,8 @@ data class UserDto(
     val info: String = "",
     val image: String = "",
     val token: String = "",
-    val phone: String = ""
+    val phone: String = "",
+    val lastMessage: String = ""
 ) {
     fun asModel(): UserModel = UserModel(
         id = id,
@@ -17,7 +18,8 @@ data class UserDto(
         info = info,
         image = image,
         token = token,
-        phone = phone
+        phone = phone,
+        lastMessage = lastMessage
     )
 
     fun asEntity(): UserEntity = UserEntity(
@@ -26,7 +28,8 @@ data class UserDto(
         info = info,
         image = image,
         token = token,
-        phone = phone
+        phone = phone,
+        lastMessage = lastMessage
     )
 }
 
