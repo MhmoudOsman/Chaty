@@ -12,5 +12,5 @@ sealed class AuthUiState {
     ) : AuthUiState()
 
     data object LoginSuccess : AuthUiState()
-    data class Error(val message: String) : AuthUiState()
+    data class Error(val message: String, val code: AuthErrorsCode) : AuthUiState()
 }

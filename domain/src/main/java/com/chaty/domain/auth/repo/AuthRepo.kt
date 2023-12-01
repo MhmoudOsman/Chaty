@@ -9,5 +9,6 @@ interface AuthRepo {
     suspend fun sendOtp(optionsModel: PhoneAuthOptionsModel):Flow<PhoneAuthResult>
     suspend fun login(credential: PhoneAuthCredential): Boolean
     suspend fun login(verificationId: String, code: String): Boolean
+    suspend fun logout(): Boolean
 
 }

@@ -1,4 +1,4 @@
-package com.chaty.app.tools
+package com.chaty.data.tools
 
 import android.content.Context
 import android.content.SharedPreferences

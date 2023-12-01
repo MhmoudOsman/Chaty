@@ -18,7 +18,7 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "MyChat"
+rootProject.name = "Chaty"
 include(":app")
 include(":data")
 include(":domain")

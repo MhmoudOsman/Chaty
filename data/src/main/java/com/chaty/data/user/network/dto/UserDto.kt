@@ -1,7 +1,7 @@
-package com.chaty.data.auth.network.dto
+package com.chaty.data.user.network.dto
 
-import com.chaty.data.auth.local.entities.UserEntity
-import com.chaty.domain.auth.models.UserModel
+import com.chaty.data.user.local.entities.UserEntity
+import com.chaty.domain.user.models.UserModel
 
 data class UserDto(
     val id: String = "",
@@ -9,7 +9,8 @@ data class UserDto(
     val info: String = "",
     val image: String = "",
     val token: String = "",
-    val phone: String = ""
+    val phone: String = "",
+    val lastMessage: String = ""
 ) {
     fun asModel(): UserModel = UserModel(
         id = id,
@@ -17,7 +18,8 @@ data class UserDto(
         info = info,
         image = image,
         token = token,
-        phone = phone
+        phone = phone,
+        lastMessage = lastMessage
     )
 
     fun asEntity(): UserEntity = UserEntity(
@@ -26,7 +28,8 @@ data class UserDto(
         info = info,
         image = image,
         token = token,
-        phone = phone
+        phone = phone,
+        lastMessage = lastMessage
     )
 }
 

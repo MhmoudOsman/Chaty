@@ -1,6 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <style name="Widget.Toolbar" parent="Widget.Material3.Toolbar.Surface">
+        <item name="materialThemeOverlay">@style/ThemeOverlay.Toolbar</item>
+        <item name="titleTextAppearance">@style/TextAppearance.TitleLarge</item>
+        <item name="subtitleTextAppearance">@style/TextAppearance.TitleMedium</item>
+    </style>
 
+    <style name="ThemeOverlay.Toolbar" parent="">
+        <item name="colorSurface">?colorPrimary</item>
+        <item name="colorOnSurface">?colorOnPrimary</item>
+        <item name="colorSurfaceVariant">?colorOnPrimary</item>
+        <item name="colorControlNormal">?colorOnPrimary</item>
+
+    </style>
+    <style name="Widget.BottomNavigationView" parent="Widget.Material3.BottomNavigationView">
+        <item name="materialThemeOverlay">@style/ThemeOverlay.BottomNavigationView</item>
+    </style>
+
+    <style name="ThemeOverlay.BottomNavigationView" parent="">
+        <item name="colorSurface">?colorPrimary</item>
+        <item name="colorSecondaryContainer">?colorPrimaryContainer</item>
+        <item name="colorOnSurface">?colorOnPrimary</item>
+        <item name="colorOnSurfaceVariant">?colorOnPrimary</item>
+        <item name="colorOnSecondaryContainer">?colorPrimary</item>
+    </style>
     <style name="ThemeOverlay.TextInputLayout" parent="">
         <item name="colorOutline">?colorPrimary</item>
         <!--        <item name="colorOnSurfaceVariant">?colorPrimary</item>-->
@@ -64,5 +87,12 @@
     <style name="ThemeOverlay.TextButton" parent="ThemeOverlay.Material3.Button.TextButton">
         <item name="colorOutline">?colorPrimary</item>
     </style>
+    <style name="Widget.FloatingActionButton" parent="Widget.Material3.FloatingActionButton.Primary">
+        <item name="materialThemeOverlay">@style/ThemeOverlay.FloatingActionButton</item>
+    </style>
 
+    <style name="ThemeOverlay.FloatingActionButton" parent="">
+        <item name="colorContainer">?colorPrimary</item>
+        <item name="colorOnContainer">?colorOnPrimary</item>
+    </style>
 </resources>

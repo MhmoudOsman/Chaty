@@ -1,6 +1,8 @@
 package com.chaty.data.auth.repo
 
-import com.chaty.data.auth.buildWithCallbacks
+import android.content.Context
+import com.chaty.data.tools.buildWithCallbacks
+import com.chaty.data.tools.CacheHelper
 import com.chaty.domain.auth.models.PhoneAuthOptionsModel
 import com.chaty.domain.auth.repo.AuthRepo
 import com.chaty.domain.auth.state.PhoneAuthResult
@@ -17,7 +19,7 @@ import kotlinx.coroutines.tasks.await
 import kotlinx.coroutines.withContext
 import java.util.concurrent.TimeUnit
 
-class AuthRepoImpl(private val dispatcher: CoroutineDispatcher) : AuthRepo {
+class AuthRepoImpl(private val context: Context, private val dispatcher: CoroutineDispatcher) : AuthRepo {
 
     private val auth = Firebase.auth
 
@@ -30,6 +32,11 @@ class AuthRepoImpl(private val dispatcher: CoroutineDispatcher) : AuthRepo {
             val credential = PhoneAuthProvider.getCredential(verificationId, code)
             auth.signInWithCredential(credential).await().user != null
         }
+
+    override suspend fun logout(): Boolean = withContext(dispatcher){
+        auth.signOut()
+        CacheHelper.getInstance(context).saveBoolean(CacheHelper.PREFERENCE_USER_LOGGED,false)
+    }
 
     override suspend fun sendOtp(optionsModel: PhoneAuthOptionsModel): Flow<PhoneAuthResult> =
         withContext(dispatcher) {

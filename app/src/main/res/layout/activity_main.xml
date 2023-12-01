@@ -8,8 +8,10 @@
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:fitsSystemWindows="true"
         tools:context=".MainActivity">
 
         <androidx.coordinatorlayout.widget.CoordinatorLayout
@@ -25,13 +27,19 @@
                 android:id="@+id/appbar"
                 android:layout_width="match_parent"
                 android:layout_height="?actionBarSize"
-                app:liftOnScrollColor="?android:colorBackground">
+                android:fitsSystemWindows="true"
+                app:liftOnScroll="true"
+                app:liftOnScrollTargetViewId="@id/nav_host_fragment">
 
                 <com.google.android.material.appbar.MaterialToolbar
                     android:id="@+id/toolbar"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    app:titleCentered="true" />
+                    app:navigationIcon="@drawable/ic_back"
+                    app:layout_scrollFlags="scroll|enterAlways|snap"
+                    app:layout_scrollEffect="compress"
+                    tools:title="@string/messages_label"
+                    />
             </com.google.android.material.appbar.AppBarLayout>
 
             <androidx.fragment.app.FragmentContainerView
@@ -43,26 +51,23 @@
                 app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior"
                 tools:navGraph="@navigation/auth_graph" />
 
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/fab"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|end"
+                android:layout_margin="@dimen/_6sdp"
+                android:src="@drawable/ic_start_chat"
+                app:layout_anchorGravity="bottom|end" />
         </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
-        <me.ibrahimsn.lib.SmoothBottomBar
+        <com.google.android.material.bottomnavigation.BottomNavigationView
             android:id="@+id/bottomBar"
             android:layout_width="match_parent"
-            android:layout_height="?actionBarSize"
-            android:elevation="@dimen/_6sdp"
-            app:backgroundColor="?android:colorBackground"
-            app:cornerRadius="@dimen/_8sdp"
-            app:corners="top_left|top_right"
-            app:iconTint="?colorPrimary"
-            app:iconTintActive="?colorOnPrimary"
-            app:indicatorColor="?colorPrimary"
-            app:indicatorRadius="@dimen/cornerRadius"
-            app:itemFontFamily="@font/rubik"
+            android:layout_height="wrap_content"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:menu="@menu/menu_bottom"
-            app:sideMargins="@dimen/_8sdp"
-            app:textColor="?colorOnPrimary" />
+            app:menu="@menu/menu_bottom"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

@@ -1,6 +1,6 @@
-package com.chaty.data.auth.local.entities
+package com.chaty.data.user.local.entities
 
-import com.chaty.domain.auth.models.UserModel
+import com.chaty.domain.user.models.UserModel
 
 data class UserEntity(
     val id: String,
@@ -8,7 +8,8 @@ data class UserEntity(
     val info: String,
     val image: String,
     val token: String,
-    val phone: String
+    val phone: String,
+    val lastMessage: String
 ){
     fun asModel(): UserModel = UserModel(
         id = id,
@@ -16,7 +17,8 @@ data class UserEntity(
         info = info,
         image = image,
         token = token,
-        phone = phone
+        phone = phone,
+        lastMessage = lastMessage
     )
 }
 

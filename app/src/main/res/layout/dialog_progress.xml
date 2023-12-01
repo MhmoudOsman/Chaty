@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:shapeAppearance="@style/ShapeAppearance.Material3.Corner.Full">
+
+        <com.google.android.material.progressindicator.CircularProgressIndicator
+            android:id="@+id/loading"
+            style="@style/Widget.Material3.CircularProgressIndicator"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:elevation="@dimen/_5sdp"
+            android:indeterminate="true" />
+
+    </com.google.android.material.card.MaterialCardView>
+</layout>

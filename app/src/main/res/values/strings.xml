@@ -3,13 +3,20 @@
 
     <string name="hello_blank_fragment" translatable="false">Hello blank fragment</string>
 
+    <!--    Error Messages-->
+    <string name="error_no_internet_connection">NO INTERNET CONNECTION</string>
+    <string name="error_invalid_phone_number">Invalid Phone Number</string>
+    <string name="error_invalid_verification_code">Invalid Verification Code</string>
+
     <!--    Content Description-->
     <string name="content_description_logo">Logo</string>
+    <string name="content_description_profile_pic">Profile Picture</string>
+    <string name="content_description_edit_profile_picture">Edit profile picture</string>
 
-    <string name="messages">Messages</string>
-    <string name="groups">Groups</string>
-    <string name="stories">Stories</string>
-    <string name="my_profile">My Profile</string>
+    <string name="messages_label">Messages</string>
+    <string name="groups_label">Groups</string>
+    <string name="stories_label">Stories</string>
+    <string name="my_profile_label">My Profile</string>
     <string name="welcome_to_chaty">Welcome to Chaty</string>
     <string name="choose_language">Choose language</string>
     <string name="enter_your_phone_number">Enter your phone number</string>
@@ -17,5 +24,12 @@
     <string name="verify">Verify</string>
     <string name="next">Next</string>
     <string name="enter_otp_code">Enter OTP Code</string>
+    <string name="enter_your_data">Enter your data</string>
+    <string name="name_helper_txt">This not your username or pin. This name will be visible to your friends</string>
+    <string name="name">Name :</string>
+    <string name="info">Info :</string>
+    <string name="confirm">Confirm</string>
+    <string name="error_required">*Required</string>
+    <string name="contacts_label">Select Contacts</string>
 
 </resources>

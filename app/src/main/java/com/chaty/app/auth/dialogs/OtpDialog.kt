@@ -15,7 +15,7 @@ import kotlinx.coroutines.launch
 class OtpDialog : DialogFragment() {
 
     private var _isShowing = false
-    val isShowing = _isShowing
+    val isShowing get() = _isShowing
     private var _binding: DialogOtpBinding? = null
     private val binding get() = _binding!!
 
@@ -52,6 +52,11 @@ class OtpDialog : DialogFragment() {
             btnResendCode.isEnabled = false
             enableResendCode()
             loading.hide()
+            onCodeError = {
+                vOtp.text?.clear()
+                vOtp.error = it
+                loading.hide()
+            }
             showProgress = {
                 loading.show()
             }

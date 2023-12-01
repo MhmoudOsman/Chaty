@@ -2,8 +2,6 @@ plugins {
     id("com.android.library")
     id("org.jetbrains.kotlin.android")
     id("com.google.devtools.ksp")
-    id("kotlin-kapt")
-    kotlin("kapt")
 }
 
 android {
@@ -45,11 +43,14 @@ dependencies {
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
 
+
+    //Preference
+    implementation("androidx.preference:preference-ktx:1.2.1")
+    implementation("com.google.code.gson:gson:2.10.1")
+
     implementation(project(path = ":domain"))
 }
-kapt {
-    correctErrorTypes = true
-}
+
 ksp {
     arg("verbose", "true")
 }
