@@ -54,7 +54,7 @@ class OtpDialog : DialogFragment() {
             loading.hide()
             onCodeError = {
                 vOtp.text?.clear()
-                vOtp.setError(it)
+                vOtp.error = it
                 loading.hide()
             }
             showProgress = {
